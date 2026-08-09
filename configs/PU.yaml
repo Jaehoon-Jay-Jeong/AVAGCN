@@ -1,0 +1,56 @@
+project_name: HSI
+
+DATASET: PU
+DEVICE: 0
+
+PATCH_SIZE: 9
+
+CLASS_PER_TRAIN: 5
+VALID_BY_CLASS: 
+    1: 280
+    2: 784
+    3: 88
+    4: 128
+    5: 56
+    6: 212
+    7: 56
+    8: 154
+    9: 40
+
+CLASS_PER_BATCH: 9
+SAMPLES_PER_CLASS: 5
+BATCH_REPEAT: 2
+TEST_BATCH_SIZE: 1024
+
+hidden_dim: 322
+latent_dim: 126
+target_features: 362
+dropout: 0.4
+
+density_target:
+    - 0.35
+    - 0.55
+kl_weight: 0.1
+
+mt_loss_weight: 0.5
+byol_weight: 0.5
+nn_byol_weight: 0.3
+
+round0_epochs: 600
+num_round: 5
+round_epochs: 600
+conf_thresholds:
+    - 0.9
+    - 0.85
+    - 0.8
+    - 0.75
+
+per_class_caps:
+    - 40
+    - 160
+    - 320
+    - 640
+
+hydra:
+  run:
+    dir: ./outputs/${DATASET}/${now:%Y-%m-%d}/${project_name}

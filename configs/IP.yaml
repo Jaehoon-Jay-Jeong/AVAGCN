@@ -1,0 +1,63 @@
+project_name: HSI
+
+DATASET: IP
+DEVICE: 0
+
+PATCH_SIZE: 9
+
+CLASS_PER_TRAIN: 5
+VALID_BY_CLASS: 
+    1: 5
+    2: 143
+    3: 83
+    4: 24
+    5: 48
+    6: 73
+    7: 3
+    8: 48
+    9: 2
+    10: 97
+    11: 246
+    12: 59
+    13: 21
+    14: 127
+    15: 39
+    16: 9
+
+CLASS_PER_BATCH: 16
+SAMPLES_PER_CLASS: 5
+BATCH_REPEAT: 3
+TEST_BATCH_SIZE: 1024
+
+hidden_dim: 322
+latent_dim: 126
+target_features: 362
+dropout: 0.4
+
+kl_weight: 0.14
+density_target:
+    - 0.35
+    - 0.55
+
+mt_loss_weight: 0.5
+byol_weight: 0.5
+nn_byol_weight: 0.3
+
+round0_epochs: 600
+num_round: 5
+round_epochs: 600
+conf_thresholds:
+    - 0.9
+    - 0.85
+    - 0.8
+    - 0.75
+
+per_class_caps:
+    - 40
+    - 160
+    - 320
+    - 640
+
+hydra:
+  run:
+    dir: ./outputs/${DATASET}/${now:%Y-%m-%d}/${project_name}
