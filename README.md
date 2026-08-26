@@ -66,7 +66,7 @@ docker run --gpus all -it -v $(pwd)/datas:/workspace/datas avagcn
 ## Datasets
 
 Download the corrected versions of Indian Pines, Pavia University, and Salinas from the
-[GIC Hyperspectral Remote Sensing Scenes](http://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes) page, and place them as:
+[Hyperspectral Remote Sensing Datasets: Indian Pines, Pavia University, Botswana and Salinas](https://ieee-dataport.org/documents/hyperspectral-remote-sensing-datasets-indian-pines-pavia-university-botswana-and-salinas) page, and place them as:
 
 ```
 datas/
