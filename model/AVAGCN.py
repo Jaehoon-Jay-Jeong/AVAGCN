@@ -133,7 +133,6 @@ class GraphAwareDecoder(nn.Module):
         q = F.normalize(self.query_proj(node_features), dim=-1)
         k = F.normalize(self.key_proj(node_features), dim=-1)
         scores = (torch.bmm(q, k.transpose(1,2)) + torch.bmm(k, q.transpose(1,2))) / 2
-        scores = torch.clamp(scores, min=-10.0, max=10.0)
         scores = scores.masked_fill(self.eye_mask, -1e9)
 
         if self.training:
